@@ -1,11 +1,11 @@
 .controller.edit {
-    background: url(https://imgur.com/NUKQY3i); 
+    background: url(drawing/brain.png);
     height: 500px;
     width: 500px;
 }
 .edit .stick {
     position: absolute;
-    background: url(https://i.imgur.com/KBU7ZA6.png);
+    background: url(drawing/stick.png);
     height: 75px;
     width: 75px;
     background-size: cover;
