@@ -1,0 +1,36 @@
+.controller.custom{
+    background: url(https://imgur.com/NUKQY3i); 
+    height: 500px;
+    width: 500px;
+}
+.custom.disconnected { /* This class shows an image when the controller is disconnected */
+    background: url(ps3-assets/base-disconnect.png);
+}
+/* This hides the controller's button when disconnected so only the background image remains */ 
+.custom.disconnected div {
+    display: none;
+}
+/* Analog sticks follow the same principles as the triggers in terms of positioning
+Note that the rotation of the sticks in hard coded with javascript, so it applies 
+the CSS inline. */
+.custom .sticks{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 69px;
+    left: 215px;
+}
+.custom .stick{
+    position: absolute;
+    background: url(https://imgur.com/KBU7ZA6);
+    height:50px;
+    width:50px;
+}
+.custom .stick.left{
+    top: 0;
+    left: 0;
+}
+.custom .stick.right{
+    top: calc(100% - 50px);
+    left: calc(100% - 50px);
+}
