@@ -1,0 +1,355 @@
+/*
+-How to use Custom CSS for the Gamepad Viewer-
+http://mrmcpowned.com/gamepad
+
+Enabling a custom CSS is as easy as adding &css=[url to css file]
+to the end of the url like so:
+http://mrmcpowned.com/gamepad?p=1&css=https://gist.github.com/anonymous/526491dc02014099cd14/raw/d7bb0477ba984f794497f3f0f82cb33484dc7889/ps3.css
+
+If you're going to be using custom CSS for the gamepad viewer
+to design your own skin, we're assuming you have some sort of
+basic knowledge on how CSS works. I'd also suggest uploading
+your custom CSS to GitHub's gist as you can easily get the
+direct link for the file by copying the link address on the
+"Raw" button at the top right of the code.
+NOTE: If you're using gist, MAKE SURE TO NAME YOUR CSS FILE!
+It doesn't matter what you call it, so long as it ends in .css
+else the site won't read it and think it's just a plain text.
+
+Each CSS entry must be preceded by '.custom' since that's the
+hardcoded class for a custom style. It doesn't make sense to
+change this as you can only have one custom skin loaded at a time.
+
+If you're using images, they have to be uploaded to an image host of
+your choice. Personally, I'd go with Imgur since it's simple to upload
+and get the direct URL of the image. None of the images in this example
+will load because they're pointing to a location relative of the css
+files, since this is normally in the main CSS file of the site.
+
+The following is a copy of the code used for displaying the PS3 controller
+skin on the Gamepad viewer. You can scroll below and read the comments to
+get an understanding of how the styling works and whatnot. Happy skinning!
+
+P.S. If you use this tool often and would like to 'buy me a coffee' you can
+do so via my Imraising page: https://imraising.tv/u/mrmcpowned
+
+*/
+
+/*BEGIN PS3 Controller Styling*/
+/*This class defines the base attributes of the skin*/
+.controller.custom{
+    background: url(drawing/dusa.png);
+    height: 500px;
+    width: 500px;
+}
+.custom.disconnected {
+    display: none;
+}
+/* This hides the controller's button when disconnected so only the background image remains */
+.custom.disconnected div {
+    display: none;
+}
+.custom .triggers{ /* The triggers are housed inside a div, so this sizes the div properly and positions it */
+    display: none;
+}
+.custom .trigger{/* These are the actual triggers themselves */
+    display: none;
+}
+.custom .trigger.left{
+    display: none;
+}
+.custom .trigger.right{
+    display: none;
+}
+
+/* The bumpers follow the same methodology as the triggers in terms of
+placement */
+/*.custom .bumper{*/
+    /*width: 89px;*/
+    /*height: 28px;*/
+    /*background: url();*/
+    /*opacity: 0;*/
+/*}*/
+/*.custom .bumpers{*/
+    /*position: absolute;*/
+    /*width: 586px;*/
+    /*height: 28px;*/
+    /*left: 99px;*/
+    /*top: 72px;*/
+/*}*/
+/*.custom .bumper.pressed{ [> The '.pressed' class is used for most buttons to signify they've been pressed <]*/
+    /*opacity: 1;*/
+/*}*/
+/*.custom .bumper.left{*/
+  /*/* Call me lazy or smart, but why should I make 2 bumpers when they're symmetrical*/
+  /*and I can just rotate them in the browser? Also, note that you most likely won't need*/
+  /*to use a browser speficic prefix unless it's something that is indeed browser specific.*/
+  /*NOTE: CLR Browser is basically chrome, so you use '-webkit-' as the browser prefix. */*/
+    /*-webkit-transform: rotateY(180deg);*/
+    /*transform: rotateY(180deg);*/
+    /*float: left;*/
+/*}*/
+/*.custom .bumper.right{*/
+    /*float: right;*/
+/*}*/
+
+/* This bit of code is for the player indicator, which is represented in
+quandrants on the xbox controller. That's note what it's called on the
+PS3 controller but it'd be pointless for me to change the HTML for
+something as pedantic as a name. */
+.custom .quadrant{
+    display: none;
+}
+/* Since the player indicator is just a CSS sprite, we change the
+position of the background to match the player number.
+NOTE: Player orderin starts at 0, so p0 = Player 1 */
+.custom .p0{
+    display: none;
+}
+.custom .p1{
+    display: none;
+}
+.custom .p2{
+    display: none;
+}
+.custom .p3{
+    display: none;
+}
+/* This is to size and position the containing div for the
+start and select buttons. */
+.custom .arrows{
+    display: none;
+}
+/* Setting the size and CSS sprite for the start adn select buttons */
+.custom .back, .custom .start{
+    display: none;
+}
+.custom .back.pressed, .custom .start.pressed{
+    display: none;
+}
+.custom .back{
+    display: none;
+}
+.custom .start{
+    display: none;
+}
+/* Positioning and size of the container for the face buttons */
+.custom .abxy{
+}
+/* base class used to simplify the sprite mapping */
+.custom .button{
+}
+.custom .button.pressed.a{
+  position: absolute;
+  top: 150px;
+  left: 200px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: -120px -218.66667px forestgreen, 248px -16.66667px forestgreen, 190px 16.33333px forestgreen, -113px -308.66667px forestgreen, -109px -287.66667px forestgreen, -50px -313.66667px forestgreen, 226px -31.66667px forestgreen, 180px -351.66667px forestgreen, -12px -338.66667px forestgreen, 220px -388.66667px forestgreen, -69px -27.66667px forestgreen, -111px -339.66667px forestgreen, 155px -237.66667px forestgreen, -152px -380.66667px forestgreen, -50px -37.66667px forestgreen, -95px -175.66667px forestgreen, -88px 10.33333px forestgreen, 112px -309.66667px forestgreen, 69px -415.66667px forestgreen, 168px -100.66667px forestgreen, -244px 24.33333px forestgreen, 97px -325.66667px forestgreen, -211px -182.66667px forestgreen, 236px -126.66667px forestgreen, 140px -196.66667px forestgreen, 125px -175.66667px forestgreen, 118px -381.66667px forestgreen, 144px -111.66667px forestgreen, 36px -78.66667px forestgreen, -63px -196.66667px forestgreen, -218px -227.66667px forestgreen, -134px -377.66667px forestgreen, -36px -412.66667px forestgreen, 209px -106.66667px forestgreen, 91px -278.66667px forestgreen, -22px -191.66667px forestgreen, 139px -392.66667px forestgreen, 56px -2.66667px forestgreen, -156px -276.66667px forestgreen, -163px -233.66667px forestgreen, -238px -346.66667px forestgreen, 62px -363.66667px forestgreen, 244px -170.66667px forestgreen, 224px -142.66667px forestgreen, 141px -208.66667px forestgreen, 211px -285.66667px forestgreen, 181px -128.66667px forestgreen, 90px -123.66667px forestgreen, 189px 70.33333px forestgreen, -18px -383.66667px forestgreen, 100px -6.66667px forestgreen;
+  -moz-animation: 0.5s banga ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -webkit-animation: 0.5s banga ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -o-animation: 0.5s banga ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -ms-animation: 0.5s banga ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  animation: 0.5s banga ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 0.5s hide ease-in infinite backwards;
+  animation-iteration-count: 1;
+}
+.custom .button.pressed.b{
+  position: absolute;
+  top: 100px;
+  left: 290px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: -120px -218.66667px maroon, 248px -16.66667px maroon, 190px 16.33333px maroon, -113px -308.66667px maroon, -109px -287.66667px maroon, -50px -313.66667px maroon, 226px -31.66667px maroon, 180px -351.66667px maroon, -12px -338.66667px maroon, 220px -388.66667px maroon, -69px -27.66667px maroon, -111px -339.66667px maroon, 155px -237.66667px maroon, -152px -380.66667px maroon, -50px -37.66667px maroon, -95px -175.66667px maroon, -88px 10.33333px maroon, 112px -309.66667px maroon, 69px -415.66667px maroon, 168px -100.66667px maroon, -244px 24.33333px maroon, 97px -325.66667px maroon, -211px -182.66667px maroon, 236px -126.66667px maroon, 140px -196.66667px maroon, 125px -175.66667px maroon, 118px -381.66667px maroon, 144px -111.66667px maroon, 36px -78.66667px maroon, -63px -196.66667px maroon, -218px -227.66667px maroon, -134px -377.66667px maroon, -36px -412.66667px maroon, 209px -106.66667px maroon, 91px -278.66667px maroon, -22px -191.66667px maroon, 139px -392.66667px maroon, 56px -2.66667px maroon, -156px -276.66667px maroon, -163px -233.66667px maroon, -238px -346.66667px maroon, 62px -363.66667px maroon, 244px -170.66667px maroon, 224px -142.66667px maroon, 141px -208.66667px maroon, 211px -285.66667px maroon, 181px -128.66667px maroon, 90px -123.66667px maroon, 189px 70.33333px maroon, -18px -383.66667px maroon, 100px -6.66667px maroon;
+  -moz-animation: 0.5s bangb ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -webkit-animation: 0.5s bangb ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -o-animation: 0.5s bangb ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -ms-animation: 0.5s bangb ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  animation: 0.5s bangb ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 0.5s hide ease-in infinite backwards;
+  animation-iteration-count: 1;
+}
+.custom .button.pressed.x{
+  position: absolute;
+  top: 100px;
+  left: 115px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: -120px -218.66667px darkblue, 248px -16.66667px darkblue, 190px 16.33333px darkblue, -113px -308.66667px darkblue, -109px -287.66667px darkblue, -50px -313.66667px darkblue, 226px -31.66667px darkblue, 180px -351.66667px darkblue, -12px -338.66667px darkblue, 220px -388.66667px darkblue, -69px -27.66667px darkblue, -111px -339.66667px darkblue, 155px -237.66667px darkblue, -152px -380.66667px darkblue, -50px -37.66667px darkblue, -95px -175.66667px darkblue, -88px 10.33333px darkblue, 112px -309.66667px darkblue, 69px -415.66667px darkblue, 168px -100.66667px darkblue, -244px 24.33333px darkblue, 97px -325.66667px darkblue, -211px -182.66667px darkblue, 236px -126.66667px darkblue, 140px -196.66667px darkblue, 125px -175.66667px darkblue, 118px -381.66667px darkblue, 144px -111.66667px darkblue, 36px -78.66667px darkblue, -63px -196.66667px darkblue, -218px -227.66667px darkblue, -134px -377.66667px darkblue, -36px -412.66667px darkblue, 209px -106.66667px darkblue, 91px -278.66667px darkblue, -22px -191.66667px darkblue, 139px -392.66667px darkblue, 56px -2.66667px darkblue, -156px -276.66667px darkblue, -163px -233.66667px darkblue, -238px -346.66667px darkblue, 62px -363.66667px darkblue, 244px -170.66667px darkblue, 224px -142.66667px darkblue, 141px -208.66667px darkblue, 211px -285.66667px darkblue, 181px -128.66667px darkblue, 90px -123.66667px darkblue, 189px 70.33333px darkblue, -18px -383.66667px darkblue, 100px -6.66667px darkblue;
+  -moz-animation: 0.5s bangx ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -webkit-animation: 0.5s bangx ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -o-animation: 0.5s bangx ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -ms-animation: 0.5s bangx ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  animation: 0.5s bangx ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 0.5s hide ease-in infinite backwards;
+  animation-iteration-count: 1;
+}
+.custom .button.pressed.y{
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: -120px -218.66667px orange, 248px -16.66667px orange, 190px 16.33333px orange, -113px -308.66667px orange, -109px -287.66667px orange, -50px -313.66667px orange, 226px -31.66667px orange, 180px -351.66667px orange, -12px -338.66667px orange, 220px -388.66667px orange, -69px -27.66667px orange, -111px -339.66667px orange, 155px -237.66667px orange, -152px -380.66667px orange, -50px -37.66667px orange, -95px -175.66667px orange, -88px 10.33333px orange, 112px -309.66667px orange, 69px -415.66667px orange, 168px -100.66667px orange, -244px 24.33333px orange, 97px -325.66667px orange, -211px -182.66667px orange, 236px -126.66667px orange, 140px -196.66667px orange, 125px -175.66667px orange, 118px -381.66667px orange, 144px -111.66667px orange, 36px -78.66667px orange, -63px -196.66667px orange, -218px -227.66667px orange, -134px -377.66667px orange, -36px -412.66667px orange, 209px -106.66667px orange, 91px -278.66667px orange, -22px -191.66667px orange, 139px -392.66667px orange, 56px -2.66667px orange, -156px -276.66667px orange, -163px -233.66667px orange, -238px -346.66667px orange, 62px -363.66667px orange, 244px -170.66667px orange, 224px -142.66667px orange, 141px -208.66667px orange, 211px -285.66667px orange, 181px -128.66667px orange, 90px -123.66667px orange, 189px 70.33333px orange, -18px -383.66667px orange, 100px -6.66667px orange;
+  -moz-animation: 0.5s bangy ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -webkit-animation: 0.5s bangy ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -o-animation: 0.5s bangy ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -ms-animation: 0.5s bangy ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  animation: 0.5s bangy ease-out infinite backwards, 0.5s gravity ease-in infinite backwards, 0.5s hide ease-in infinite backwards;
+  animation-iteration-count: 1;
+}
+/* Analog sticks follow the same principles as the triggers in terms of positioning
+Note that the rotation of the sticks in hard coded with javascript, so it applies
+the CSS inline. */
+.custom .sticks{
+    position: absolute;
+    width: 371px;
+    height: 180px;
+    top: 260px;
+    left: 100px;
+}
+.custom .stick{
+    position: absolute;
+    background: url(drawing/stick.png);
+    height: 75px;
+    width: 75px;
+    background-size: cover;
+}
+.custom .stick.pressed.left{
+}
+.custom .stick.pressed.right{
+}
+.custom .stick.left{
+    top: 0px;
+    left: 0px;
+}
+.custom .stick.right{
+    top: 0px;
+    left: 150px;
+}
+/* Dpad possitioning and sizing */
+.custom .dpad{
+    display: none;
+}
+.custom .face{
+    display: none;
+}
+.custom .face.up, .custom .face.down{
+    display: none;
+}
+.custom .face.left, .custom .face.right{
+    display: none;
+}
+.custom .face.up{
+    display: none;
+}
+.custom .face.down{
+    display: none;
+}
+.custom .face.left{
+    display: none;
+}
+.custom .face.right{
+    display: none;
+}
+.custom .face.pressed{
+    display: none;
+}
+/* NOTE: You NEED to set this to exactly half the height of what is listed
+for '.controller.custom' so when your skin is activated via player selection
+parameters (e.g. http://mrmcpowned.com/gamepad?p=1) it will be correctly
+centemaroon on screen. */
+.custom.half{
+    margin-top: -250px;
+}
+/* The following entries are empty because I haven't used them yet, but they
+exist for the purpose of displaying a fightstick. Since fightsticks have
+the left and right triggers and digital buttons, there are separate
+html items that allow the triggers to be shown as button presses isntead of
+an opacity setting */
+.custom .trigger-button.left{
+
+}
+.custom .trigger-button.right{
+
+}
+.custom .trigger-button.left.pressed{
+
+}
+.custom .trigger-button.right.pressed{
+
+}
+/* This is where the fight stick CSS would go. The ideal way of
+showing the input would be to use an image sprite of a fight stick in
+all 8 positions, and change it according to the inputs. The classes
+themselves are fairly self explanatory. */
+.fstick{
+    position: absolute;
+    width: 140px;
+    height: 132px;
+    top: 192px;
+    left: 74px;
+}
+.fstick.up{
+
+}
+.fstick.down{
+
+}
+.fstick.left{
+
+}
+.fstick.right{
+
+}
+.fstick.up.right{
+
+}
+.fstick.up.left{
+
+}
+.fstick.down.right{
+
+}
+.fstick.down.left{
+
+}
+
+@-webkit-keyframes banga {
+  from {
+    box-shadow: 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime, 0 0 lime;
+    opacity: 1;
+   }
+}
+@-webkit-keyframes bangb {
+  from {
+    box-shadow: 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red, 0 0 red;
+    opacity: 1;
+   }
+}
+@-webkit-keyframes bangx {
+  from {
+    box-shadow: 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal, 0 0 teal;
+    opacity: 1;
+   }
+}
+@-webkit-keyframes bangy {
+  from {
+    box-shadow: 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange, 0 0 orange;
+    opacity: 1;
+   }
+}
+@-webkit-keyframes gravity {
+  to {
+    transform: translateY(200px);
+    -moz-transform: translateY(200px);
+    -webkit-transform: translateY(200px);
+    -o-transform: translateY(200px);
+    -ms-transform: translateY(200px);
+    opacity: 0; } }
+/*END PS3 Controller Styling*/
