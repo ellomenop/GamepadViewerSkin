@@ -1,30 +1,20 @@
-.controller.custom{
+.controller.edit {
     background: url(https://imgur.com/NUKQY3i); 
     height: 500px;
     width: 500px;
 }
-/* Analog sticks follow the same principles as the triggers in terms of positioning
-Note that the rotation of the sticks in hard coded with javascript, so it applies 
-the CSS inline. */
-.custom .sticks{
-    position: absolute;
-    width: 371px;
-    height: 180px;
-    top: 180px;
-    left: 35px;
-}
-.custom .stick{
+.edit .stick {
     position: absolute;
     background: url(https://i.imgur.com/KBU7ZA6.png);
     height: 75px;
     width: 75px;
     background-size: cover;
 }
-.custom .stick.left{
+.edit .stick.left {
     top: 0;
     left: 0;
 }
-.custom .stick.right{
+.edit .stick.right{
     top: 0px;
     left: 150px;
 }
