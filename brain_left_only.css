@@ -164,14 +164,15 @@ the CSS inline. */
     width: 371px;
     height: 180px;
     top: 180px;
-    left: 35px;
+    left: 20px;
 }
 .custom .stick{
     position: absolute;
     background: url(drawing/stickleftonly.png);
-    height: 75px;
-    width: 75px;
-    background-size: cover;
+    height: 100px;
+    width: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .custom .stick.pressed.left{
 }
